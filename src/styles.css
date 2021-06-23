@@ -1,4 +1,21 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+.mdContainer {
+  width: 100%;
+  height: 100px;
+  display: flex;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.edit {
+  width: 50vw;
+  background: #F8F8FA;
+  border-right: 1px solid #666;
+  border: none;
+  height: 100vh;
+}
+
+.show {
+  flex: 1;
 }
