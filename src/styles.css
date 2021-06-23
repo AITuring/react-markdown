@@ -10,6 +10,8 @@ textarea:focus {
 
 .edit {
   width: 50vw;
+  min-width: 50vw;
+  max-width: 50vw;
   background: #F8F8FA;
   border-right: 1px solid #666;
   border: none;
