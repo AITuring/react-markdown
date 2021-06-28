@@ -8,6 +8,10 @@ body {
   display: flex;
 }
 
+textarea {
+  line-height: 2;
+}
+
 textarea:focus {
   outline: none;
 }
@@ -28,6 +32,6 @@ textarea:focus {
 .show {
   flex: 1;
   padding: 0vh 1vh;
-  word-wrap:break-word; 
-  word-break:break-all; 
+  word-wrap:break-word;
+  word-break:break-all;
 }
