@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import markdownIt from 'markdown-it';
 import "./styles.css";
+import "./catfish.css";
 
 const md = new markdownIt();
 
