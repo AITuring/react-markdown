@@ -35,3 +35,13 @@ textarea:focus {
   word-wrap:break-word;
   word-break:break-all;
 }
+
+.hljs {
+  padding: 1vw;
+  border-radius: 0.4vw;
+}
+
+.md-fences, code, tt {
+  margin: 0 !important;
+  padding: 0 !important;
+}
