@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import markdownIt from 'markdown-it';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css'  // 引入github风格的代码高亮样式
@@ -18,29 +18,31 @@ const md = new markdownIt({
 
     return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
   }
-  // highlight: function (code, language) {
-  //   if (language && hljs.getLanguage(language)) {
-  //     try {
-  //       return `<pre><code class="hljs language-${language}">` +
-  //              hljs.highlight(code, { language  }).value +
-  //              '</code></pre>';
-  //     } catch (__) {}
-  //   }
-
-  //   return '<pre class="hljs"><code>' + md.utils.escapeHtml(code) + '</code></pre>';
-// }
 });
+
 
 export default function Markdown() {
 
   const [htmlString, setHtmlString] = useState('');
+  const [textString, setTextString] = useState('');
+
+  useEffect(() => {
+    setTextString(localStorage.getItem('text'));
+    setHtmlString(parse(htmlString));
+  }, [])
 
   const parse = (text) => setHtmlString(md.render(text));
   return (
     <div className="mdContainer">
       <textarea
         className="edit"
-        onChange={(e)=> parse(e.target.value)} // 编辑区内容每次改变更新htmlString
+        value={textString}
+        onChange={(e)=> {
+          localStorage.setItem('text', e.target.value)
+          parse(e.target.value)
+          console.log(e.target.value)
+          console.log(htmlString)
+        }} // 编辑区内容每次改变更新htmlString
       >
       </textarea>
       <div
